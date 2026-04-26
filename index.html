@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixelbytte — Websites for Small Businesses in India</title>
+  <meta name="description" content="Clean, fast, mobile-friendly websites for small businesses across India. Starting at ₹9,999. Delivered in 7 days." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖱️</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg:      '#0F0F0F',
+            surface: '#1A1A1A',
+            blue:    '#3B82F6',
+            'blue-hover': '#2563EB',
+          },
+          fontFamily: {
+            heading: ['Space Grotesk', 'sans-serif'],
+            body:    ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: #0F0F0F; color: #fff; }
+    body { font-family: 'Inter', sans-serif; background: #0F0F0F; }
+    h1, h2, h3, h4, h5 { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Nav glass */
+    .nav-glass {
+      background: rgba(15, 15, 15, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* Gradient hero text */
+    .hero-gradient {
+      background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Blue glow */
+    .blue-glow {
+      box-shadow: 0 0 32px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Card hover */
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+      border-color: rgba(59, 130, 246, 0.4) !important;
+    }
+
+    /* Btn transitions */
+    .btn-primary {
+      background: #3B82F6;
+      color: #fff;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #2563EB;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff;
+      transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-outline:hover {
+      border-color: #3B82F6;
+      background: rgba(59, 130, 246, 0.08);
+      transform: translateY(-1px);
+    }
+
+    /* FAQ accordion */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Section tag */
+    .section-tag {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #3B82F6;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+
+    /* Portfolio card image area */
+    .portfolio-img {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, transparent 60%);
+    }
+
+    /* Process step connector */
+    .step-connector {
+      position: absolute;
+      top: 28px;
+      left: calc(50% + 28px);
+      right: calc(-50% + 28px);
+      height: 1px;
+      background: linear-gradient(90deg, rgba(59,130,246,0.5), rgba(59,130,246,0.1));
+    }
+
+    /* Popular badge glow */
+    .popular-glow {
+      box-shadow: 0 0 0 1px #3B82F6, 0 0 40px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Horizontal scroll hide */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0F0F0F; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+    /* Mobile nav */
+    #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ════════════════════════════════════════ -->
+  <nav class="nav-glass fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-blue rounded-lg flex items-center justify-center blue-glow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="1" y="1" width="6" height="6" rx="1" fill="white"/>
+            <rect x="9" y="1" width="6" height="6" rx="1" fill="white" opacity="0.5"/>
+            <rect x="1" y="9" width="6" height="6" rx="1" fill="white" opacity="0.5"/>
+            <rect x="9" y="9" width="6" height="6" rx="1" fill="white"/>
+          </svg>
+        </div>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.1rem; letter-spacing:-0.02em;" class="text-white group-hover:text-blue transition-colors">Pixelbytte</span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#work"     class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Work</a>
+        <a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Services</a>
+        <a href="#process"  class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Process</a>
+        <a href="#contact"  class="btn-primary text-sm font-semibold px-5 py-2 rounded-lg">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" class="md:hidden text-gray-400 hover:text-white p-1" aria-label="Toggle menu">
+        <svg id="icon-open"  width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg id="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden overflow-hidden max-h-0 opacity-0">
+      <div class="px-6 pb-5 pt-2 flex flex-col gap-4 border-t border-white/5">
+        <a href="#work"     onclick="closeMobileMenu()" class="text-sm text-gray-400 hover:text-white transition-colors font-medium py-1">Work</a>
+        <a href="#services" onclick="closeMobileMenu()" class="text-sm text-gray-400 hover:text-white transition-colors font-medium py-1">Services</a>
+        <a href="#process"  onclick="closeMobileMenu()" class="text-sm text-gray-400 hover:text-white transition-colors font-medium py-1">Process</a>
+        <a href="#contact"  onclick="closeMobileMenu()" class="btn-primary text-sm font-semibold px-5 py-2.5 rounded-lg text-center mt-1">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+
+    <!-- Background grid -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <!-- Blue radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10" style="background: radial-gradient(circle, #3B82F6 0%, transparent 70%); pointer-events:none;"></div>
+
+    <div class="max-w-6xl mx-auto px-6 py-24 text-center relative z-10">
+      <div class="section-tag">Web Design Studio · India</div>
+
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight" style="font-family:'Space Grotesk',sans-serif;">
+        <span class="hero-gradient">We build websites</span><br />
+        <span class="text-white">that work for your</span><br />
+        <span style="background: linear-gradient(90deg, #3B82F6, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip:text;">business.</span>
+      </h1>
+
+      <p class="text-gray-400 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+        Clean, fast, mobile-friendly websites for small businesses across India.<br class="hidden sm:block" />
+        <span class="text-white font-medium">Starting at ₹9,999.</span>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#work" class="btn-primary font-semibold px-8 py-3.5 rounded-xl text-base inline-flex items-center justify-center gap-2">
+          See Our Work
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline font-semibold px-8 py-3.5 rounded-xl text-base inline-flex items-center justify-center gap-2">
+          Get a Quote
+        </a>
+      </div>
+
+      <!-- Social proof strip -->
+      <div class="mt-16 flex items-center justify-center gap-6 text-sm text-gray-600">
+        <span class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+          5-star rated
+        </span>
+        <span class="w-px h-4 bg-white/10"></span>
+        <span>7-day delivery</span>
+        <span class="w-px h-4 bg-white/10"></span>
+        <span>Mobile-first builds</span>
+        <span class="w-px h-4 bg-white/10"></span>
+        <span>Made in India 🇮🇳</span>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 8l5 5 5-5"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       WORK / PORTFOLIO
+  ════════════════════════════════════════ -->
+  <section id="work" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14">
+        <div class="section-tag">Portfolio</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">Our Work</h2>
+        <p class="text-gray-400 mt-3 text-lg">Real websites for real businesses.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Card 1: Bandra Smile Studio -->
+        <div class="card-hover bg-surface border border-white/8 rounded-2xl overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <!-- Screenshot -->
+          <div class="overflow-hidden">
+            <img src="images/dental.png" alt="Bandra Smile Studio website" class="w-full rounded-xl object-cover">
+          </div>
+          <!-- Card content -->
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <span class="inline-block text-xs font-semibold text-blue-400 bg-blue-400/10 border border-blue-400/20 rounded-full px-3 py-1 mb-2" style="color:#60a5fa; background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.2);">Healthcare</span>
+                <h3 class="text-xl font-bold text-white" style="font-family:'Space Grotesk',sans-serif;">Bandra Smile Studio</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">A clean, professional website for a dental clinic in Bandra, Mumbai — designed to build trust and drive appointment bookings online.</p>
+            <a href="https://bandra-smile-studio.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-blue transition-colors hover:text-blue-300" style="color:#3B82F6;">
+              View Site
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7 2.5L11.5 7 7 11.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: Bandra Brew Co. -->
+        <div class="card-hover bg-surface border border-white/8 rounded-2xl overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="overflow-hidden">
+            <img src="images/cafe.png" alt="Bandra Brew Co. website" class="w-full rounded-xl object-cover">
+          </div>
+          <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <span class="inline-block text-xs font-semibold rounded-full px-3 py-1 mb-2" style="color:#fbbf24; background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.2);">Food &amp; Beverage</span>
+                <h3 class="text-xl font-bold text-white" style="font-family:'Space Grotesk',sans-serif;">Bandra Brew Co.</h3>
+              </div>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">A warm, atmospheric website for a specialty café in Bandra — showcasing the menu, ambience, and story behind the brand.</p>
+            <a href="https://bandra-brew-co.vercel.app" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:opacity-80" style="color:#3B82F6;">
+              View Site
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 7h9M7 2.5L11.5 7 7 11.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SERVICES / PRICING
+  ════════════════════════════════════════ -->
+  <section id="services" class="py-24 px-6" style="background: linear-gradient(180deg, #0F0F0F 0%, #111111 50%, #0F0F0F 100%);">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14">
+        <div class="section-tag">Pricing</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">What We Build</h2>
+        <p class="text-gray-400 mt-3 text-lg">Transparent pricing. No surprises.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 items-start">
+
+        <!-- Starter -->
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="mb-6">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-2">Starter</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white" style="font-family:'Space Grotesk',sans-serif;">₹9,999</span>
+            </div>
+            <p class="text-gray-500 text-sm mt-1">Delivered in 7 days</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> 3 pages</li>
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> Mobile-friendly</li>
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> Contact form</li>
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> WhatsApp button</li>
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> Google Maps integration</li>
+            <li class="flex items-center gap-3"><span class="text-blue flex-shrink-0" style="color:#3B82F6;">✓</span> 1 revision</li>
+          </ul>
+          <a href="#contact" class="btn-outline w-full py-3 rounded-xl text-sm font-semibold text-center block">Get Started</a>
+        </div>
+
+        <!-- Business (Most Popular) -->
+        <div class="card-hover rounded-2xl p-7 border relative popular-glow" style="background: linear-gradient(145deg, #1e2d3d 0%, #1a2332 100%); border-color:#3B82F6;">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+            <span class="bg-blue text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wide" style="background:#3B82F6;">MOST POPULAR</span>
+          </div>
+          <div class="mb-6 mt-2">
+            <p class="text-sm font-semibold text-blue-400 uppercase tracking-widest mb-2" style="color:#60a5fa;">Business</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white" style="font-family:'Space Grotesk',sans-serif;">₹19,999</span>
+            </div>
+            <p class="text-gray-400 text-sm mt-1">Delivered in 10–14 days</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-sm text-gray-200">
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> 5–6 pages</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> Everything in Starter</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> Instagram feed</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> Google Business setup</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> Photo gallery</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> SEO basics</li>
+            <li class="flex items-center gap-3"><span style="color:#60a5fa;">✓</span> 2 revisions</li>
+          </ul>
+          <a href="#contact" class="btn-primary w-full py-3 rounded-xl text-sm font-semibold text-center block">Get Started</a>
+        </div>
+
+        <!-- Professional -->
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="mb-6">
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-2">Professional</p>
+            <div class="flex items-baseline gap-1">
+              <span class="text-4xl font-extrabold text-white" style="font-family:'Space Grotesk',sans-serif;">₹34,999</span>
+            </div>
+            <p class="text-gray-500 text-sm mt-1">Delivered in 3–4 weeks</p>
+          </div>
+          <ul class="space-y-3 mb-8 text-sm text-gray-300">
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> 8–10 pages</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> Everything in Business</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> Booking system</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> Blog setup</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> Advanced SEO</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> 3 revisions</li>
+            <li class="flex items-center gap-3"><span style="color:#3B82F6;">✓</span> 30-day post-launch support</li>
+          </ul>
+          <a href="#contact" class="btn-outline w-full py-3 rounded-xl text-sm font-semibold text-center block">Get Started</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       WHY PIXELBYTTE
+  ════════════════════════════════════════ -->
+  <section id="why" class="py-24 px-6" style="background:#111111;">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14 text-center">
+        <div class="section-tag">Why Us</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">Why Choose Pixelbytte</h2>
+        <p class="text-gray-400 mt-3 text-lg">We're not an agency. We're your web team.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Fast Delivery</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Starter sites launch in 7 days. No waiting months for a simple website. We move at the speed your business needs.</p>
+        </div>
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Mobile-First</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Every site we build is designed for phones first, then desktops — because that's how your customers browse.</p>
+        </div>
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Transparent Pricing</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Fixed quotes with no scope creep surprises. You know exactly what you're paying before we start a single pixel.</p>
+        </div>
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">India-Based</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Local market understanding, INR pricing, and a team that works in your time zone. No communication gaps.</p>
+        </div>
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Full Ownership</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Your domain, hosting, and code — all transferred to you on launch day. We never hold your website hostage.</p>
+        </div>
+
+        <div class="card-hover rounded-2xl p-7 border" style="background:#1A1A1A; border-color:#222222;">
+          <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Ongoing Support</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Free minor edits for 30 days after launch. And if you need more, our maintenance plan has you covered.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       ADD-ONS
+  ════════════════════════════════════════ -->
+  <section id="addons" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-12">
+        <div class="section-tag">Add-ons</div>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">Extras &amp; Upgrades</h2>
+        <p class="text-gray-400 mt-3">Bolt these on to any package.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+
+        <div class="card-hover rounded-xl p-5 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="w-9 h-9 bg-blue/10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(59,130,246,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <p class="text-white font-semibold text-sm mb-1" style="font-family:'Space Grotesk',sans-serif;">Logo Design</p>
+          <p class="text-blue font-bold text-lg" style="color:#3B82F6; font-family:'Space Grotesk',sans-serif;">₹3,500</p>
+        </div>
+
+        <div class="card-hover rounded-xl p-5 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="w-9 h-9 bg-blue/10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(59,130,246,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <p class="text-white font-semibold text-sm mb-1" style="font-family:'Space Grotesk',sans-serif;">Extra Page</p>
+          <p class="text-blue font-bold text-lg" style="color:#3B82F6; font-family:'Space Grotesk',sans-serif;">₹1,500</p>
+        </div>
+
+        <div class="card-hover rounded-xl p-5 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="w-9 h-9 bg-blue/10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(59,130,246,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <p class="text-white font-semibold text-sm mb-1" style="font-family:'Space Grotesk',sans-serif;">Extra Revision</p>
+          <p class="text-blue font-bold text-lg" style="color:#3B82F6; font-family:'Space Grotesk',sans-serif;">₹2,500</p>
+        </div>
+
+        <div class="card-hover rounded-xl p-5 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="w-9 h-9 bg-blue/10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(59,130,246,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p class="text-white font-semibold text-sm mb-1" style="font-family:'Space Grotesk',sans-serif;">Monthly Maintenance</p>
+          <p class="text-blue font-bold text-lg" style="color:#3B82F6; font-family:'Space Grotesk',sans-serif;">₹2,999<span class="text-gray-500 text-xs font-normal">/mo</span></p>
+        </div>
+
+        <div class="card-hover rounded-xl p-5 border sm:col-span-2 lg:col-span-1" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <div class="w-9 h-9 bg-blue/10 rounded-lg flex items-center justify-center mb-4" style="background:rgba(59,130,246,0.1);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <p class="text-white font-semibold text-sm mb-1" style="font-family:'Space Grotesk',sans-serif;">SEO Retainer</p>
+          <p class="text-blue font-bold text-lg" style="color:#3B82F6; font-family:'Space Grotesk',sans-serif;">from ₹8,000<span class="text-gray-500 text-xs font-normal">/mo</span></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PROCESS
+  ════════════════════════════════════════ -->
+  <section id="process" class="py-24 px-6" style="background: linear-gradient(180deg, #0F0F0F 0%, #111 50%, #0F0F0F 100%);">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14">
+        <div class="section-tag">Process</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">How It Works</h2>
+        <p class="text-gray-400 mt-3 text-lg">Simple. Fast. Zero surprises.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg flex-shrink-0" style="background: rgba(59,130,246,0.15); color:#3B82F6; font-family:'Space Grotesk',sans-serif; border:1px solid rgba(59,130,246,0.25);">01</div>
+            <div class="hidden md:block h-px flex-1" style="background:linear-gradient(90deg, rgba(59,130,246,0.4), rgba(59,130,246,0.05));"></div>
+          </div>
+          <div class="w-9 h-9 bg-surface rounded-lg flex items-center justify-center mb-4" style="background:rgba(255,255,255,0.04);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Chat</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Tell us about your business in a free 15-minute consultation call.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg flex-shrink-0" style="background: rgba(59,130,246,0.15); color:#3B82F6; font-family:'Space Grotesk',sans-serif; border:1px solid rgba(59,130,246,0.25);">02</div>
+            <div class="hidden md:block h-px flex-1" style="background:linear-gradient(90deg, rgba(59,130,246,0.4), rgba(59,130,246,0.05));"></div>
+          </div>
+          <div class="w-9 h-9 bg-surface rounded-lg flex items-center justify-center mb-4" style="background:rgba(255,255,255,0.04);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Proposal</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We send a detailed quote with scope, timeline, and pricing within 24 hours.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg flex-shrink-0" style="background: rgba(59,130,246,0.15); color:#3B82F6; font-family:'Space Grotesk',sans-serif; border:1px solid rgba(59,130,246,0.25);">03</div>
+            <div class="hidden md:block h-px flex-1" style="background:linear-gradient(90deg, rgba(59,130,246,0.4), rgba(59,130,246,0.05));"></div>
+          </div>
+          <div class="w-9 h-9 bg-surface rounded-lg flex items-center justify-center mb-4" style="background:rgba(255,255,255,0.04);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Build</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We design and build your site in 7–14 days. You review, we refine.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div>
+          <div class="flex items-center gap-4 mb-5">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg flex-shrink-0" style="background: rgba(59,130,246,0.15); color:#3B82F6; font-family:'Space Grotesk',sans-serif; border:1px solid rgba(59,130,246,0.25);">04</div>
+          </div>
+          <div class="w-9 h-9 bg-surface rounded-lg flex items-center justify-center mb-4" style="background:rgba(255,255,255,0.04);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Space Grotesk',sans-serif;">Launch</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Your site goes live. We hand over all credentials and access — fully yours.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FAQ
+  ════════════════════════════════════════ -->
+  <section id="faq" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-14 text-center">
+        <div class="section-tag">FAQ</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif;">Common Questions</h2>
+        <p class="text-gray-400 mt-3 text-lg">Everything you need to know before we get started.</p>
+      </div>
+
+      <div class="space-y-3" id="faq-list">
+
+        <div class="faq-item rounded-xl border overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left gap-4" aria-expanded="false">
+            <span class="font-semibold text-white text-base" style="font-family:'Space Grotesk',sans-serif;">Do I need to provide content?</span>
+            <svg class="faq-icon flex-shrink-0 text-gray-400" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </button>
+          <div class="faq-answer px-6 text-gray-400 text-sm leading-relaxed">
+            <div class="pb-5">We'll guide you through exactly what we need — business name, tagline, photos, services, etc. If you don't have professional photos, we can source stock images. We handle all the copywriting and layout. You just answer our simple questionnaire.</div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-xl border overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left gap-4" aria-expanded="false">
+            <span class="font-semibold text-white text-base" style="font-family:'Space Grotesk',sans-serif;">How do payments work?</span>
+            <svg class="faq-icon flex-shrink-0 text-gray-400" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </button>
+          <div class="faq-answer px-6 text-gray-400 text-sm leading-relaxed">
+            <div class="pb-5">We work on a 50-50 split: 50% upfront to start, and 50% on delivery before the site goes live. We accept UPI, bank transfer, and Razorpay. No hidden fees — what you see in the proposal is what you pay.</div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-xl border overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left gap-4" aria-expanded="false">
+            <span class="font-semibold text-white text-base" style="font-family:'Space Grotesk',sans-serif;">What if I want changes after launch?</span>
+            <svg class="faq-icon flex-shrink-0 text-gray-400" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </button>
+          <div class="faq-answer px-6 text-gray-400 text-sm leading-relaxed">
+            <div class="pb-5">Minor text changes (phone numbers, hours, etc.) are free for the first 30 days. For bigger changes — new pages, redesign — we charge the add-on rates listed above. Our monthly maintenance package also covers ongoing updates for ₹2,999/month.</div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-xl border overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left gap-4" aria-expanded="false">
+            <span class="font-semibold text-white text-base" style="font-family:'Space Grotesk',sans-serif;">Do you handle hosting and domain?</span>
+            <svg class="faq-icon flex-shrink-0 text-gray-400" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </button>
+          <div class="faq-answer px-6 text-gray-400 text-sm leading-relaxed">
+            <div class="pb-5">Yes — we set everything up for you. We recommend and help you register a domain (typically ₹800–₹1,200/year) and set up fast, secure hosting. We hand over full ownership and login credentials on launch day. The site is 100% yours.</div>
+          </div>
+        </div>
+
+        <div class="faq-item rounded-xl border overflow-hidden" style="background:#1A1A1A; border-color:rgba(255,255,255,0.07);">
+          <button class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left gap-4" aria-expanded="false">
+            <span class="font-semibold text-white text-base" style="font-family:'Space Grotesk',sans-serif;">How long does it take?</span>
+            <svg class="faq-icon flex-shrink-0 text-gray-400" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </button>
+          <div class="faq-answer px-6 text-gray-400 text-sm leading-relaxed">
+            <div class="pb-5">The Starter package launches in 7 days. Business takes 10–14 days. Professional takes 3–4 weeks. Timeline starts once we receive the 50% advance and your questionnaire. Quick replies from your end help us move faster!</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       TESTIMONIALS
+  ════════════════════════════════════════ -->
+  <section id="testimonials" class="py-24 px-6" style="background:#F8F5F0;">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="mb-14 text-center">
+        <div class="section-tag">Testimonials</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Space Grotesk',sans-serif; color:#0F0F0F;">What Clients Say</h2>
+        <p class="mt-3 text-lg" style="color:#555;">Real words from real business owners.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="rounded-2xl p-7 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.06);">
+          <div class="flex gap-1 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"Our appointment bookings went up noticeably within the first month. The site is clean, fast, and patients actually comment on how professional it looks."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style="background:linear-gradient(135deg,#3B82F6,#1d4ed8);">AM</div>
+            <div>
+              <p class="text-white font-semibold text-sm" style="font-family:'Space Grotesk',sans-serif;">Dr. Anjali Mehta</p>
+              <p class="text-gray-500 text-xs">Bandra Smile Studio, Mumbai</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-7 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.06);">
+          <div class="flex gap-1 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"Pixelbytte captured exactly the vibe we were going for. The photos look gorgeous, the menu is easy to navigate, and customers now find us on Google all the time. Worth every rupee."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style="background:linear-gradient(135deg,#f59e0b,#b45309);">RK</div>
+            <div>
+              <p class="text-white font-semibold text-sm" style="font-family:'Space Grotesk',sans-serif;">Rahul Kapoor</p>
+              <p class="text-gray-500 text-xs">Bandra Brew Co., Mumbai</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl p-7 border" style="background:#1A1A1A; border-color:rgba(255,255,255,0.06);">
+          <div class="flex gap-1 mb-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#3B82F6"><path d="M8 0L9.8 5.4H15.5L10.9 8.7L12.7 14.1L8 10.8L3.3 14.1L5.1 8.7L0.5 5.4H6.2L8 0Z"/></svg>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-6">"I had no idea what I wanted — just that I needed a website for my flower shop. They walked me through everything and delivered something beautiful. I get enquiries from the site every week now."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0" style="background:linear-gradient(135deg,#ec4899,#9d174d);">PS</div>
+            <div>
+              <p class="text-white font-semibold text-sm" style="font-family:'Space Grotesk',sans-serif;">Priya Singh</p>
+              <p class="text-gray-500 text-xs">Petal &amp; Co. Florists, Pune</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CONTACT / CTA
+  ════════════════════════════════════════ -->
+  <section id="contact" class="py-24 px-6" style="background:#111111;">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="mb-14 text-center">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-3" style="font-family:'Space Grotesk',sans-serif;">
+          Ready to get <span style="background:linear-gradient(90deg,#3B82F6,#60a5fa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">started?</span>
+        </h2>
+        <p class="text-gray-400 text-lg">Tell us about your business and we'll send a free proposal within 24 hours.</p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <div class="rounded-2xl p-8 md:p-10" style="background:#fff;">
+
+          <form id="contact-form" action="https://formspree.io/f/xnjlrrdb" method="POST" class="space-y-5">
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color:#0F0F0F; font-family:'Space Grotesk',sans-serif;">Your Name</label>
+                <input type="text" name="name" required placeholder="Ravi Mehta"
+                  class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-all"
+                  style="background:#F8F8F8; border-color:#E5E5E5; color:#0F0F0F;">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color:#0F0F0F; font-family:'Space Grotesk',sans-serif;">Business Name</label>
+                <input type="text" name="business" required placeholder="Sunshine Bakery"
+                  class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-all"
+                  style="background:#F8F8F8; border-color:#E5E5E5; color:#0F0F0F;">
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color:#0F0F0F; font-family:'Space Grotesk',sans-serif;">Business Type</label>
+                <select name="business_type" required
+                  class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-all"
+                  style="background:#F8F8F8; border-color:#E5E5E5; color:#0F0F0F;">
+                  <option value="" disabled selected>Select your industry</option>
+                  <option>Restaurant / Café</option>
+                  <option>Clinic / Healthcare</option>
+                  <option>Retail / Shop</option>
+                  <option>Salon / Spa</option>
+                  <option>Education / Coaching</option>
+                  <option>Real Estate</option>
+                  <option>Freelancer / Consultant</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color:#0F0F0F; font-family:'Space Grotesk',sans-serif;">Budget</label>
+                <select name="budget" required
+                  class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-all"
+                  style="background:#F8F8F8; border-color:#E5E5E5; color:#0F0F0F;">
+                  <option value="" disabled selected>Select your budget</option>
+                  <option>Under ₹10,000</option>
+                  <option>₹10,000 – ₹20,000</option>
+                  <option>₹20,000 – ₹35,000</option>
+                  <option>₹35,000+</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-2" style="color:#0F0F0F; font-family:'Space Grotesk',sans-serif;">Tell us about your project</label>
+              <textarea name="message" rows="4" required placeholder="What kind of website do you need? Any specific features? Do you have a logo or photos ready?"
+                class="w-full px-4 py-3 rounded-xl border text-sm focus:outline-none transition-all resize-none"
+                style="background:#F8F8F8; border-color:#E5E5E5; color:#0F0F0F;"></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New project enquiry from Pixelbytte">
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit"
+              class="w-full py-4 rounded-xl font-bold text-base text-white transition-all duration-200 hover:-translate-y-0.5"
+              style="background:#3B82F6; font-family:'Space Grotesk',sans-serif; box-shadow:0 8px 24px rgba(59,130,246,0.35);"
+              onmouseover="this.style.background='#2563EB'; this.style.boxShadow='0 12px 32px rgba(59,130,246,0.45)'"
+              onmouseout="this.style.background='#3B82F6'; this.style.boxShadow='0 8px 24px rgba(59,130,246,0.35)'">
+              Send My Request →
+            </button>
+
+          </form>
+
+        </div>
+
+        <!-- Alternative contact options -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-8 justify-center">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-3 font-semibold px-7 py-3.5 rounded-xl text-sm transition-all duration-200 hover:-translate-y-0.5"
+             style="background:#25D366; color:#fff; box-shadow:0 6px 20px rgba(37,211,102,0.25);"
+             onmouseover="this.style.background='#1ebe5d'"
+             onmouseout="this.style.background='#25D366'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Chat on WhatsApp
+          </a>
+          <a href="mailto:hello@pixelbytte.in"
+             class="btn-outline inline-flex items-center justify-center gap-3 font-semibold px-7 py-3.5 rounded-xl text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            hello@pixelbytte.in
+          </a>
+        </div>
+
+        <p class="text-gray-600 text-sm text-center mt-6">No sales pressure. No commitment. Just a free proposal.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="border-t py-12 px-6" style="border-color:rgba(255,255,255,0.06); background:#0a0a0a;">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+
+        <!-- Logo + tagline -->
+        <div class="text-center md:text-left">
+          <a href="#" class="flex items-center gap-2 justify-center md:justify-start mb-2">
+            <div class="w-7 h-7 bg-blue rounded-md flex items-center justify-center" style="background:#3B82F6;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="1" y="1" width="6" height="6" rx="1" fill="white"/>
+                <rect x="9" y="1" width="6" height="6" rx="1" fill="white" opacity="0.5"/>
+                <rect x="1" y="9" width="6" height="6" rx="1" fill="white" opacity="0.5"/>
+                <rect x="9" y="9" width="6" height="6" rx="1" fill="white"/>
+              </svg>
+            </div>
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1rem; letter-spacing:-0.02em;" class="text-white">Pixelbytte</span>
+          </a>
+          <p class="text-gray-600 text-sm">Building the web, one small business at a time.</p>
+        </div>
+
+        <!-- Social icons -->
+        <div class="flex items-center gap-4">
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors hover:bg-white/10" style="border:1px solid rgba(255,255,255,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gray-400">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-lg flex items-center justify-center transition-colors hover:bg-white/10" style="border:1px solid rgba(255,255,255,0.08);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gray-400">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-gray-600 text-sm text-center md:text-right">
+          © 2026 Pixelbytte. All rights reserved.
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script>
+    // ── Mobile nav ──────────────────────────────
+    const menuBtn   = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen  = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.style.maxHeight = '300px';
+        mobileMenu.style.opacity  = '1';
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.style.maxHeight = '0';
+      mobileMenu.style.opacity   = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+
+    // ── FAQ accordion ────────────────────────────
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item   = trigger.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').classList.remove('open');
+          i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Smooth scroll offset for sticky nav ─────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        const href = anchor.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const offset = 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // ── Nav active link on scroll ─────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const isActive = link.getAttribute('href') === '#' + id;
+            link.style.color = isActive ? '#fff' : '';
+          });
+        }
+      });
+    }, { rootMargin: '-60px 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+
+    // ── Contact form (async Formspree) ───────────
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = contactForm.querySelector('button[type="submit"]');
+        const orig = btn.textContent;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            contactForm.innerHTML = '<div class="text-center py-10"><div style="font-size:3rem;" class="mb-4">🎉</div><h3 class="text-2xl font-bold mb-3" style="font-family:\'Space Grotesk\',sans-serif; color:#0F0F0F;">Request Sent!</h3><p class="text-base" style="color:#555;">We\'ll send your free proposal within 24 hours.</p></div>';
+          } else {
+            btn.textContent = orig;
+            btn.disabled = false;
+            alert('Something went wrong. Please email us at hello@pixelbytte.in');
+          }
+        } catch {
+          btn.textContent = orig;
+          btn.disabled = false;
+          alert('Something went wrong. Please email us at hello@pixelbytte.in');
+        }
+      });
+    }
+
+    // ── Fade-in on scroll ─────────────────────
+    const fadeEls = document.querySelectorAll('.card-hover, section > div > .section-tag');
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.card-hover').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s ease, border-color 0.25s ease';
+      fadeObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
